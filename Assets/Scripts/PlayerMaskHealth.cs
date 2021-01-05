@@ -6,6 +6,8 @@ public class PlayerMaskHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public GameObject Green;
+    public GameObject Red;
 
     public HealthBarSys healthBar;
     // Start is called before the first frame update
@@ -13,16 +15,35 @@ public class PlayerMaskHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        Green.gameObject.SetActive(true);
+        Red.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (other.gameObject.CompareTag("Virus"))
         {
             TakeDamage(20);
+            Red.gameObject.SetActive(false);
+            Green.gameObject.SetActive(true);
         }
-        
+        if (other.gameObject.CompareTag("VirusBound"))
+        {
+            Red.gameObject.SetActive(true);
+            Green.gameObject.SetActive(false);
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("VirusBound"))
+        {
+            Red.gameObject.SetActive(false);
+            Green.gameObject.SetActive(true);
+        }
+
     }
 
     void TakeDamage(int damage)
