@@ -84,7 +84,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 0.353}
     - _Color0: {r: 0.22794122, g: 0.778, b: 0.96593857, a: 0}
     - _ColorBottom: {r: 0.9716981, g: 0.9109793, b: 0.61877, a: 1}
-    - _ColorTop: {r: 1, g: 0.9934155, b: 0.9575472, a: 0}
+    - _ColorTop: {r: 1, g: 0.9991614, b: 0.995283, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
