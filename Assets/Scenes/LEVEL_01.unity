@@ -69741,7 +69741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scrollx: 0
-  Scrolly: 0.2
+  Scrolly: 0.05
 --- !u!64 &1833045048
 MeshCollider:
   m_ObjectHideFlags: 0
