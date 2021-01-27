@@ -4,35 +4,75 @@ using UnityEngine;
 
 public class PlayerMaskHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
+    public static int Mask;
     public GameObject Green;
     public GameObject Red;
+    public GameObject Mask1, Mask2, Mask3;
 
-    public HealthBarSys healthBar;
+    
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        
         Green.gameObject.SetActive(true);
         Red.gameObject.SetActive(false);
+
+        Mask = 3;
+        Mask1.gameObject.SetActive(true);
+        Mask2.gameObject.SetActive(true);
+        Mask3.gameObject.SetActive(true);
     }
+
+    void Update()
+    {
+        if (Mask > 3)
+            Mask = 3;
+        switch (Mask)
+        {
+            case 3:
+                Mask1.gameObject.SetActive(true);
+                Mask2.gameObject.SetActive(true);
+                Mask3.gameObject.SetActive(true);
+                break;
+            case 2:
+                Mask1.gameObject.SetActive(true);
+                Mask2.gameObject.SetActive(true);
+                Mask3.gameObject.SetActive(false);
+                break;
+            case 1:
+                Mask1.gameObject.SetActive(true);
+                Mask2.gameObject.SetActive(false);
+                Mask3.gameObject.SetActive(false);
+                break;
+
+
+            case 0:
+                Mask1.gameObject.SetActive(false);
+                Mask2.gameObject.SetActive(false);
+                Mask3.gameObject.SetActive(false);
+                break;
+
+        }
+    }
+
 
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Virus"))
         {
-            TakeDamage(20);
+            Mask-= 1;
             Red.gameObject.SetActive(false);
             Green.gameObject.SetActive(true);
+            Debug.Log("Mask lose 1");
         }
         if (other.gameObject.CompareTag("VirusBound"))
         {
             Red.gameObject.SetActive(true);
             Green.gameObject.SetActive(false);
         }
+
+   
 
     }
 
@@ -46,10 +86,6 @@ public class PlayerMaskHealth : MonoBehaviour
 
     }
 
-    void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
+ 
 
-        healthBar.SetHealth(currentHealth);
-    }
 }
