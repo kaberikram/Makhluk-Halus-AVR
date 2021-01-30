@@ -8,6 +8,11 @@ TagManager:
   - Virus
   - VrCamera
   - VirusBound
+  - Ring
+  - Filter
+  - VRhands
+  - Sanitizer
+  - VirusSmall
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,17 @@ public class GunTest : MonoBehaviour
     public Transform barrel;
     public AudioSource audioSource;
     public AudioClip audioClip;
-  
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("VRhands"))
+        {
+
+            Fire();
+
+        }
+    }
     public void Fire()
     {
         GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);

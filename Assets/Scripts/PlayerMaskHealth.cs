@@ -9,11 +9,11 @@ public class PlayerMaskHealth : MonoBehaviour
     public GameObject Red;
     public GameObject Mask1, Mask2, Mask3;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
         Green.gameObject.SetActive(true);
         Red.gameObject.SetActive(false);
 
@@ -61,7 +61,7 @@ public class PlayerMaskHealth : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Virus"))
         {
-            Mask-= 1;
+            Mask -= 1;
             Red.gameObject.SetActive(false);
             Green.gameObject.SetActive(true);
             Debug.Log("Mask lose 1");
@@ -71,8 +71,13 @@ public class PlayerMaskHealth : MonoBehaviour
             Red.gameObject.SetActive(true);
             Green.gameObject.SetActive(false);
         }
+        if (other.gameObject.CompareTag("VirusSmall"))
+        {
+            Mask -= 1;
+            Debug.Log("Mask lose 1");
+        }
 
-   
+
 
     }
 
@@ -86,6 +91,6 @@ public class PlayerMaskHealth : MonoBehaviour
 
     }
 
- 
+
 
 }

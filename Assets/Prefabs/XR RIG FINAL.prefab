@@ -2391,9 +2391,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Green: {fileID: 7097348338800658624}
   Red: {fileID: 7097348337263855147}
-  Mask1: {fileID: 7097348338149281389}
-  Mask2: {fileID: 7097348336933106974}
-  Mask3: {fileID: 7097348338341440348}
+  Mask1: {fileID: 0}
+  Mask2: {fileID: 0}
+  Mask3: {fileID: 0}
 --- !u!136 &7097348337728134776
 CapsuleCollider:
   m_ObjectHideFlags: 0
