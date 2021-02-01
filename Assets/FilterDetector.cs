@@ -15,6 +15,7 @@ public class FilterDetector : MonoBehaviour
         if (other.gameObject.CompareTag("Filter"))
         {
             Dropzone.gameObject.SetActive(true);
+            Invoke("HideZone", 1);
 
         }
 
@@ -29,5 +30,10 @@ public class FilterDetector : MonoBehaviour
 
         }
 
+    }
+
+    public void HideZone()
+    {
+        Dropzone.gameObject.SetActive(false);
     }
 }

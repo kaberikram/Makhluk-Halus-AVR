@@ -21,14 +21,21 @@ public class MaskPickup : MonoBehaviour
         {
             //this.gameObject.SetActive(false);
             maskPick = PlayerMaskHealth.Mask += 1;
-            GetComponent<MeshRenderer>().enabled = false;
+            //GetComponent<MeshRenderer>().enabled = false;
+            this.gameObject.SetActive(false);
             DummyMask.gameObject.SetActive(true);
+            Invoke("HideMask", 0.5f);
 
         }
 
       
     }
-    private void OnTriggerExit(Collider other)
+
+    public void HideMask()
+    {
+        DummyMask.gameObject.SetActive(false);
+    }
+    /*private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Ring"))
         {
@@ -36,7 +43,7 @@ public class MaskPickup : MonoBehaviour
 
         }
 
-    }
+    }*/
 
 
 }

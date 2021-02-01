@@ -8,13 +8,13 @@ public class smallervirus : MonoBehaviour
     {
         if (other.gameObject.CompareTag("VRhands"))
         {
-           
+            
             this.gameObject.SetActive(false);
 
         }
         if (other.gameObject.CompareTag("Sanitizer"))
         {
-
+            
             this.gameObject.SetActive(false);
 
         }
