@@ -22,6 +22,7 @@ public class GunTest : MonoBehaviour
 
             Fire();
             Sanitizer.Play();
+            audioSource.PlayOneShot(audioClip);
 
         }
     }
@@ -34,13 +35,13 @@ public class GunTest : MonoBehaviour
             Fire();
             Sanitizer.Stop();
 
+
         }
     }
     public void Fire()
     {
         GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
         spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
-        audioSource.PlayOneShot(audioClip);
         Destroy(spawnedBullet, 2);
     }
 }

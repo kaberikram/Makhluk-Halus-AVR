@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WAter
-  m_Shader: {fileID: 4800000, guid: 9ac4aa85296866f4fa767afb1db8f7cb, type: 3}
+  m_Name: WAter 1
+  m_Shader: {fileID: 4800000, guid: a4540f3b783d58e4994c41d8a57d9344, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -37,8 +37,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DisplGuide:
         m_Texture: {fileID: 2800000, guid: 5da43d1e3344734448a5cfe5485de9d8, type: 3}
-        m_Scale: {x: 1, y: 0.06}
-        m_Offset: {x: 6.28, y: 7.34}
+        m_Scale: {x: -0.17, y: 0.15}
+        m_Offset: {x: -0.37, y: -1.43}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -54,7 +54,7 @@ Material:
     - _NoiseTex:
         m_Texture: {fileID: 2800000, guid: b4bc7267f4307ba4983762bed8975741, type: 3}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: -2.58, y: 1.72}
+        m_Offset: {x: 0, y: -0.81}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -68,7 +68,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DisplAmount: 1.33
+    - _DisplAmount: 0.8
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -89,7 +89,7 @@ Material:
     - _Color: {r: 0.3484336, g: 0.6712037, b: 0.8490566, a: 1}
     - _ColorBottomDark: {r: 0.5222944, g: 0.9150943, b: 0.71947306, a: 1}
     - _ColorBottomLight: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
-    - _ColorTopDark: {r: 0.26383942, g: 0.7264151, b: 0.6496264, a: 1}
+    - _ColorTopDark: {r: 0.2627451, g: 0.54340404, b: 0.7254902, a: 1}
     - _ColorTopLight: {r: 0.46431112, g: 0.8867924, b: 0.87356997, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
