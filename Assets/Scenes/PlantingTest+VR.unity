@@ -362,6 +362,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105648844}
   m_CullTransparentMesh: 0
+--- !u!1 &109533867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2862960168056886866, guid: c075c6d112d16324c87245ab82532052, type: 3}
+  m_PrefabInstance: {fileID: 406349145}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &175030432
 GameObject:
   m_ObjectHideFlags: 0
@@ -5578,6 +5583,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8097604863531381542, guid: c075c6d112d16324c87245ab82532052, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3a444df2e9246354b93c81764f8c5ad3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c075c6d112d16324c87245ab82532052, type: 3}
 --- !u!1 &407053466
@@ -7076,7 +7085,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f07d04ff6ffcc7d4ebbf3f3f5e2e8e5d, type: 2}
+  - {fileID: 2100000, guid: 53667683bcde11b49ab2299e76b0ddd9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7868,6 +7877,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4816155166127076735, guid: 15e9fc4a18fefdf419d9f4846fd17635, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5576423920558091961, guid: 15e9fc4a18fefdf419d9f4846fd17635, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -8845,6 +8858,8 @@ MonoBehaviour:
   ammo3: {fileID: 1940576971}
   ammo4: {fileID: 1054632019}
   ammo5: {fileID: 1026365704}
+  notPlantArea: {fileID: 693597492}
+  virusBound: {fileID: 109533867}
 --- !u!4 &1295243290
 Transform:
   m_ObjectHideFlags: 0

@@ -22,16 +22,16 @@ public class VirusSpawner : MonoBehaviour
     //public GameObject _virusPrefab;
     public Image abilityImage1;
     public GameObject ammo1, ammo2, ammo3, ammo4, ammo5;
-    //public GameObject notPlantArea;
-    //public GameObject virusBound;
+    public GameObject notPlantArea;
+    public GameObject virusBound;
 
 
 
     private void Start()
     {
 
-        //notPlantArea.gameObject.SetActive(false);
-       // virusBound.gameObject.SetActive(false);
+        notPlantArea.gameObject.SetActive(false);
+        virusBound.gameObject.SetActive(false);
         
         if (currentAmmo == -1)
             currentAmmo = maxAmmo;
@@ -59,20 +59,20 @@ public class VirusSpawner : MonoBehaviour
             if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 Debug.Log("Canhit");
-                //notPlantArea.gameObject.SetActive(false);
-                //virusBound.gameObject.SetActive(false);
+                notPlantArea.gameObject.SetActive(false);
+                virusBound.gameObject.SetActive(false);
 
             }
             if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("PlayerBound"))
             {
                 Debug.Log("Cant");
-                //notPlantArea.gameObject.SetActive(true);
-                //virusBound.gameObject.SetActive(false);
+                notPlantArea.gameObject.SetActive(true);
+                virusBound.gameObject.SetActive(false);
             }
             if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("VirusBound"))
             {
                 Debug.Log("NonPlantAreaVirus");
-                //virusBound.gameObject.SetActive(true);
+                virusBound.gameObject.SetActive(true);
 
             }
            
@@ -197,8 +197,8 @@ public class VirusSpawner : MonoBehaviour
 
     private void SpawnVirusBound(Vector3 spawnPosition)
     {
-        //virusBound.gameObject.transform.position = spawnPosition;
-        //virusBound.gameObject.transform.rotation = Quaternion.identity;
+        virusBound.gameObject.transform.position = spawnPosition;
+        virusBound.gameObject.transform.rotation = Quaternion.identity;
 
     }
 
