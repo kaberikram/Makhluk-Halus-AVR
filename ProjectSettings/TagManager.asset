@@ -7,6 +7,12 @@ TagManager:
   - vrPlayer
   - Virus
   - VrCamera
+  - VirusBound
+  - Ring
+  - Filter
+  - VRhands
+  - Sanitizer
+  - VirusSmall
   layers:
   - Default
   - TransparentFX
@@ -18,8 +24,8 @@ TagManager:
   - 
   - PlayerBound
   - Ground
-  - 
-  - 
+  - Buildings
+  - VirusBound
   - 
   - 
   - 
