@@ -7,7 +7,7 @@ public class PlayerMaskHealth : MonoBehaviour
     public static int Mask;
     public GameObject Green;
     public GameObject Red;
-    public GameObject Mask1, Mask2, Mask3;
+    public GameObject Mask1, Mask2, Mask3, Maskp1, Maskp2, Maskp3;
 
 
     // Start is called before the first frame update
@@ -21,6 +21,9 @@ public class PlayerMaskHealth : MonoBehaviour
         Mask1.gameObject.SetActive(true);
         Mask2.gameObject.SetActive(true);
         Mask3.gameObject.SetActive(true);
+        Maskp1.gameObject.SetActive(true);
+        Maskp2.gameObject.SetActive(true);
+        Maskp3.gameObject.SetActive(true);
     }
 
     void Update()
@@ -33,16 +36,25 @@ public class PlayerMaskHealth : MonoBehaviour
                 Mask1.gameObject.SetActive(true);
                 Mask2.gameObject.SetActive(true);
                 Mask3.gameObject.SetActive(true);
+                Maskp1.gameObject.SetActive(true);
+                Maskp2.gameObject.SetActive(true);
+                Maskp3.gameObject.SetActive(true);
                 break;
             case 2:
                 Mask1.gameObject.SetActive(true);
                 Mask2.gameObject.SetActive(true);
                 Mask3.gameObject.SetActive(false);
+                Maskp1.gameObject.SetActive(true);
+                Maskp2.gameObject.SetActive(true);
+                Maskp3.gameObject.SetActive(false);
                 break;
             case 1:
                 Mask1.gameObject.SetActive(true);
                 Mask2.gameObject.SetActive(false);
                 Mask3.gameObject.SetActive(false);
+                Maskp1.gameObject.SetActive(true);
+                Maskp2.gameObject.SetActive(false);
+                Maskp3.gameObject.SetActive(false);
                 break;
 
 
@@ -50,6 +62,9 @@ public class PlayerMaskHealth : MonoBehaviour
                 Mask1.gameObject.SetActive(false);
                 Mask2.gameObject.SetActive(false);
                 Mask3.gameObject.SetActive(false);
+                Maskp1.gameObject.SetActive(false);
+                Maskp2.gameObject.SetActive(false);
+                Maskp3.gameObject.SetActive(false);
                 break;
 
         }

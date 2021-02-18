@@ -7749,6 +7749,9 @@ MonoBehaviour:
   Mask1: {fileID: 8576827271417726703}
   Mask2: {fileID: 8576827272349040028}
   Mask3: {fileID: 8576827271072490462}
+  Maskp1: {fileID: 0}
+  Maskp2: {fileID: 0}
+  Maskp3: {fileID: 0}
 --- !u!136 &8576827272669615866
 CapsuleCollider:
   m_ObjectHideFlags: 0
