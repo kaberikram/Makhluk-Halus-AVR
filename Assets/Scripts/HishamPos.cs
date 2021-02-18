@@ -4,39 +4,26 @@ using UnityEngine;
 
 public class HishamPos : MonoBehaviour
 {
-    public Transform[] wayPointList;
-
-    public int currentWayPoint = 0;
-    Transform targetWayPoint;
+    public GameObject IconMain;
+    public GameObject NextPos;
 
     public float speed = 4f;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (currentWayPoint < this.wayPointList.Length)
+        float step = speed * Time.deltaTime;
+        if (other.gameObject.CompareTag("vrPlayer"))
         {
-            if (targetWayPoint == null)
-                targetWayPoint = wayPointList[currentWayPoint];
-            walk();
+            IconMain.transform.position = Vector3.MoveTowards(IconMain.transform.position, NextPos.transform.position, step);
         }
-    }
 
-    void walk()
-    {
 
-        // move towards the target
-        transform.position = Vector3.MoveTowards(transform.position, targetWayPoint.position, speed * Time.deltaTime);
 
-        if (transform.position == targetWayPoint.position)
-        {
-            currentWayPoint++;
-            targetWayPoint = wayPointList[currentWayPoint];
-        }
     }
 }
