@@ -13,6 +13,11 @@ public class menuchange : MonoBehaviour
         SceneManager.LoadScene("LEVEL_01");
     }
 
+    public void Change3()
+    {
+        SceneManager.LoadScene("tutorialiso");
+    }
+
 
 
 }
