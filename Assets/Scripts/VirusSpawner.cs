@@ -8,7 +8,8 @@ public class VirusSpawner : MonoBehaviour
     //[SerializeField] private GameObject _virusPrefab;
 
     public float cooldownTime = 5f;
-    
+    Vector3 mouseScreenPosition;
+    RaycastHit hitInfo;
 
 
 
@@ -20,12 +21,17 @@ public class VirusSpawner : MonoBehaviour
 
     //public GameObject _virusPrefab;
     public Image abilityImage1;
-    public GameObject ammo1, ammo2, ammo3, ammo4, ammo5; 
+    public GameObject ammo1, ammo2, ammo3, ammo4, ammo5;
+    public GameObject notPlantArea;
+    public GameObject virusBound;
 
 
 
     private void Start()
     {
+
+        notPlantArea.gameObject.SetActive(false);
+        virusBound.gameObject.SetActive(false);
         
         if (currentAmmo == -1)
             currentAmmo = maxAmmo;
@@ -40,12 +46,49 @@ public class VirusSpawner : MonoBehaviour
 
     void Update()
     {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        int mask = 1 << LayerMask.NameToLayer("Ground");
+        mask |= 1 << LayerMask.NameToLayer("PlayerBound");
+        mask |= 1 << LayerMask.NameToLayer("VirusBound");
+        
 
-         if (Input.GetMouseButtonDown(0))
-         {
+        bool hit = Physics.Raycast(ray, out hitInfo, mask);
+
+        if (hit)
+        {
+            if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            {
+                Debug.Log("Canhit");
+                notPlantArea.gameObject.SetActive(false);
+                virusBound.gameObject.SetActive(false);
+
+            }
+            if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("PlayerBound"))
+            {
+                Debug.Log("Cant");
+                notPlantArea.gameObject.SetActive(true);
+                virusBound.gameObject.SetActive(false);
+            }
+            if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("VirusBound"))
+            {
+                Debug.Log("NonPlantAreaVirus");
+                virusBound.gameObject.SetActive(true);
+
+            }
+           
+
+
+
+
+            if (Input.GetMouseButtonDown(0))
+            {
                 Shoot();
-                
-         }
+
+            }
+
+        }
+
+ 
         
 
         if (isCooldown)
@@ -119,19 +162,11 @@ public class VirusSpawner : MonoBehaviour
     {
         
 
-        Vector3 mouseScreenPosition = Input.mousePosition;
-        Ray ray = Camera.main.ScreenPointToRay(mouseScreenPosition);
-        RaycastHit hitInfo;
-
-        int mask = 1 << LayerMask.NameToLayer("Ground");
-        mask |= 1 << LayerMask.NameToLayer("PlayerBound");
-
-        bool hit = Physics.Raycast(ray, out hitInfo, mask);
-
         if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("Ground") && (currentAmmo > 0) && (isCooldown == false))
         {
             currentAmmo--;
             SpawnVirusAtposition(hitInfo.point);
+            SpawnVirusBound(hitInfo.point);
             Debug.Log("hit");
             isCooldown = true;
             abilityImage1.fillAmount = 1;
@@ -158,6 +193,13 @@ public class VirusSpawner : MonoBehaviour
             b.SetActive(true);
 
         }
+    }
+
+    private void SpawnVirusBound(Vector3 spawnPosition)
+    {
+        virusBound.gameObject.transform.position = spawnPosition;
+        virusBound.gameObject.transform.rotation = Quaternion.identity;
+
     }
 
    
