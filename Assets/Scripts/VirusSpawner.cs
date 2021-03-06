@@ -22,6 +22,7 @@ public class VirusSpawner : MonoBehaviour
     //public GameObject _virusPrefab;
     public Image abilityImage1;
     public GameObject BluePrint;
+    public GameObject Unavailable;
     public GameObject ammo1, ammo2, ammo3, ammo4, ammo5;
     public GameObject notPlantArea;
     public GameObject virusBound;
@@ -31,6 +32,7 @@ public class VirusSpawner : MonoBehaviour
     private void Start()
     {
         BluePrint.gameObject.SetActive(false);
+        Unavailable.gameObject.SetActive(false);
         notPlantArea.gameObject.SetActive(false);
         virusBound.gameObject.SetActive(false);
         
@@ -79,6 +81,7 @@ public class VirusSpawner : MonoBehaviour
                 virusBound.gameObject.SetActive(true);
                 BluePrint.gameObject.SetActive(false);
             }
+
            
 
 
@@ -119,7 +122,8 @@ public class VirusSpawner : MonoBehaviour
                 ammo3.gameObject.SetActive(true);
                 ammo4.gameObject.SetActive(true);
                 ammo5.gameObject.SetActive(true);
-                BluePrint.gameObject.SetActive(true);
+                Unavailable.gameObject.SetActive(false);
+                
                 break;
             case 4:
                 ammo1.gameObject.SetActive(true);
@@ -127,7 +131,8 @@ public class VirusSpawner : MonoBehaviour
                 ammo3.gameObject.SetActive(true);
                 ammo4.gameObject.SetActive(true);
                 ammo5.gameObject.SetActive(false);
-                BluePrint.gameObject.SetActive(true);
+                Unavailable.gameObject.SetActive(false);
+                
                 break;
             case 3:
                 ammo1.gameObject.SetActive(true);
@@ -135,7 +140,8 @@ public class VirusSpawner : MonoBehaviour
                 ammo3.gameObject.SetActive(true);
                 ammo4.gameObject.SetActive(false);
                 ammo5.gameObject.SetActive(false);
-                BluePrint.gameObject.SetActive(true);
+                Unavailable.gameObject.SetActive(false);
+                
                 break;
             case 2:
                 ammo1.gameObject.SetActive(true);
@@ -143,7 +149,8 @@ public class VirusSpawner : MonoBehaviour
                 ammo3.gameObject.SetActive(false);
                 ammo4.gameObject.SetActive(false);
                 ammo5.gameObject.SetActive(false);
-                BluePrint.gameObject.SetActive(true);
+                Unavailable.gameObject.SetActive(false);
+                
                 break;
             case 1:
                 ammo1.gameObject.SetActive(true);
@@ -151,7 +158,8 @@ public class VirusSpawner : MonoBehaviour
                 ammo3.gameObject.SetActive(false);
                 ammo4.gameObject.SetActive(false);
                 ammo5.gameObject.SetActive(false);
-                BluePrint.gameObject.SetActive(true);
+                Unavailable.gameObject.SetActive(false);
+                
                 break;
             case 0:
                 ammo1.gameObject.SetActive(false);
@@ -159,7 +167,8 @@ public class VirusSpawner : MonoBehaviour
                 ammo3.gameObject.SetActive(false);
                 ammo4.gameObject.SetActive(false);
                 ammo5.gameObject.SetActive(false);
-                BluePrint.gameObject.SetActive(false);
+                Unavailable.gameObject.SetActive(true);
+                
                 break;
 
         }
