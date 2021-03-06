@@ -21,6 +21,7 @@ public class VirusSpawner : MonoBehaviour
 
     //public GameObject _virusPrefab;
     public Image abilityImage1;
+    public GameObject BluePrint;
     public GameObject ammo1, ammo2, ammo3, ammo4, ammo5;
     public GameObject notPlantArea;
     public GameObject virusBound;
@@ -29,7 +30,7 @@ public class VirusSpawner : MonoBehaviour
 
     private void Start()
     {
-
+        BluePrint.gameObject.SetActive(false);
         notPlantArea.gameObject.SetActive(false);
         virusBound.gameObject.SetActive(false);
         
@@ -59,8 +60,10 @@ public class VirusSpawner : MonoBehaviour
             if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 Debug.Log("Canhit");
+                BluePrint.gameObject.SetActive(true);
                 notPlantArea.gameObject.SetActive(false);
                 virusBound.gameObject.SetActive(false);
+                BluePrint.transform.position = hitInfo.point;
 
             }
             if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("PlayerBound"))
@@ -68,12 +71,13 @@ public class VirusSpawner : MonoBehaviour
                 Debug.Log("Cant");
                 notPlantArea.gameObject.SetActive(true);
                 virusBound.gameObject.SetActive(false);
+                BluePrint.gameObject.SetActive(false);
             }
             if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("VirusBound"))
             {
                 Debug.Log("NonPlantAreaVirus");
                 virusBound.gameObject.SetActive(true);
-
+                BluePrint.gameObject.SetActive(false);
             }
            
 
@@ -99,7 +103,7 @@ public class VirusSpawner : MonoBehaviour
             {
                 abilityImage1.fillAmount = 1;
                 isCooldown = false;
-
+                
             }
 
 
@@ -115,6 +119,7 @@ public class VirusSpawner : MonoBehaviour
                 ammo3.gameObject.SetActive(true);
                 ammo4.gameObject.SetActive(true);
                 ammo5.gameObject.SetActive(true);
+                BluePrint.gameObject.SetActive(true);
                 break;
             case 4:
                 ammo1.gameObject.SetActive(true);
@@ -122,6 +127,7 @@ public class VirusSpawner : MonoBehaviour
                 ammo3.gameObject.SetActive(true);
                 ammo4.gameObject.SetActive(true);
                 ammo5.gameObject.SetActive(false);
+                BluePrint.gameObject.SetActive(true);
                 break;
             case 3:
                 ammo1.gameObject.SetActive(true);
@@ -129,6 +135,7 @@ public class VirusSpawner : MonoBehaviour
                 ammo3.gameObject.SetActive(true);
                 ammo4.gameObject.SetActive(false);
                 ammo5.gameObject.SetActive(false);
+                BluePrint.gameObject.SetActive(true);
                 break;
             case 2:
                 ammo1.gameObject.SetActive(true);
@@ -136,6 +143,7 @@ public class VirusSpawner : MonoBehaviour
                 ammo3.gameObject.SetActive(false);
                 ammo4.gameObject.SetActive(false);
                 ammo5.gameObject.SetActive(false);
+                BluePrint.gameObject.SetActive(true);
                 break;
             case 1:
                 ammo1.gameObject.SetActive(true);
@@ -143,6 +151,7 @@ public class VirusSpawner : MonoBehaviour
                 ammo3.gameObject.SetActive(false);
                 ammo4.gameObject.SetActive(false);
                 ammo5.gameObject.SetActive(false);
+                BluePrint.gameObject.SetActive(true);
                 break;
             case 0:
                 ammo1.gameObject.SetActive(false);
@@ -150,6 +159,7 @@ public class VirusSpawner : MonoBehaviour
                 ammo3.gameObject.SetActive(false);
                 ammo4.gameObject.SetActive(false);
                 ammo5.gameObject.SetActive(false);
+                BluePrint.gameObject.SetActive(false);
                 break;
 
         }
@@ -172,10 +182,12 @@ public class VirusSpawner : MonoBehaviour
             abilityImage1.fillAmount = 1;
 
 
+
         }
         else
         {
             Debug.Log("not hit");
+            
         }
 
     }
