@@ -64,10 +64,14 @@ public class RotatorPlatformVR : MonoBehaviour
             targetRotation *= Quaternion.AngleAxis(90, Vector3.forward);
         }
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 10 * smooth * Time.deltaTime);
-        if (Input.GetKeyDown(KeyCode.W))
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("VRhands"))
         {
-            Button -= 1;
-            targetRotation *= Quaternion.AngleAxis(-90, Vector3.forward);
+            Button += 1;
+            targetRotation *= Quaternion.AngleAxis(90, Vector3.forward);
         }
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 10 * smooth * Time.deltaTime);
     }
