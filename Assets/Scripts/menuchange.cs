@@ -3,9 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class menuchange : MonoBehaviour
 {
+
+    public void Tutorial()
+    {
+      Invoke("Change", 2.0f);
+    }
     public void Change()
     {
-        SceneManager.LoadScene("Tutorial_Scene");
+        SceneManager.LoadScene("Tutorial Test");
     }
 
     public void Change2()
