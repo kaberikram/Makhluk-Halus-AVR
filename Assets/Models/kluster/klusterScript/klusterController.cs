@@ -30,8 +30,15 @@ public class klusterController : MonoBehaviour
             agent.SetDestination(target.position);
             animator.SetBool("Aware", true);
             agent.isStopped = false;
+
         }
         else
+        {
+            animator.SetBool("Aware", false);
+            agent.isStopped = true;
+        }
+
+        if (agent.remainingDistance <= agent.stoppingDistance)
         {
             animator.SetBool("Aware", false);
             agent.isStopped = true;
