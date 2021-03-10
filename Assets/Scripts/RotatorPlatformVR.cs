@@ -68,7 +68,7 @@ public class RotatorPlatformVR : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("VRhands"))
+        if (other.CompareTag("ButtonHand"))
         {
             Button += 1;
             targetRotation *= Quaternion.AngleAxis(90, Vector3.forward);

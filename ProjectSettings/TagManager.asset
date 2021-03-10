@@ -14,6 +14,7 @@ TagManager:
   - Sanitizer
   - VirusSmall
   - VRUX
+  - ButtonHand
   layers:
   - Default
   - TransparentFX
