@@ -7,8 +7,13 @@ public class PlayerMaskHealth : MonoBehaviour
     public static int Mask;
     public GameObject Green;
     public GameObject Red;
+    public GameObject VirusW;
+    public GameObject HishamD;
+    public GameObject RestartCube;
     public AudioSource watchSource;
     public AudioClip watchClip;
+    public AudioSource DSource;
+    public AudioClip DClip;
     public AudioSource VhitSource;
     public AudioClip VhitClip;
     public GameObject Mask1, Mask2, Mask3, Maskp1, Maskp2, Maskp3;
@@ -20,8 +25,11 @@ public class PlayerMaskHealth : MonoBehaviour
 
         Green.gameObject.SetActive(true);
         Red.gameObject.SetActive(false);
+        VirusW.SetActive(false);
+        RestartCube.SetActive(false);
+        HishamD.SetActive(false);
 
-        Mask = 3;
+        Mask = 4;
         Mask1.gameObject.SetActive(true);
         Mask2.gameObject.SetActive(true);
         Mask3.gameObject.SetActive(true);
@@ -32,11 +40,11 @@ public class PlayerMaskHealth : MonoBehaviour
 
     void Update()
     {
-        if (Mask > 3)
-            Mask = 3;
+        if (Mask > 4)
+            Mask = 4;
         switch (Mask)
         {
-            case 3:
+            case 4:
                 Mask1.gameObject.SetActive(true);
                 Mask2.gameObject.SetActive(true);
                 Mask3.gameObject.SetActive(true);
@@ -44,7 +52,7 @@ public class PlayerMaskHealth : MonoBehaviour
                 Maskp2.gameObject.SetActive(true);
                 Maskp3.gameObject.SetActive(true);
                 break;
-            case 2:
+            case 3:
                 Mask1.gameObject.SetActive(true);
                 Mask2.gameObject.SetActive(true);
                 Mask3.gameObject.SetActive(false);
@@ -52,11 +60,19 @@ public class PlayerMaskHealth : MonoBehaviour
                 Maskp2.gameObject.SetActive(true);
                 Maskp3.gameObject.SetActive(false);
                 break;
-            case 1:
+            case 2:
                 Mask1.gameObject.SetActive(true);
                 Mask2.gameObject.SetActive(false);
                 Mask3.gameObject.SetActive(false);
                 Maskp1.gameObject.SetActive(true);
+                Maskp2.gameObject.SetActive(false);
+                Maskp3.gameObject.SetActive(false);
+                break;
+            case 1:
+                Mask1.gameObject.SetActive(false);
+                Mask2.gameObject.SetActive(false);
+                Mask3.gameObject.SetActive(false);
+                Maskp1.gameObject.SetActive(false);
                 Maskp2.gameObject.SetActive(false);
                 Maskp3.gameObject.SetActive(false);
                 break;
@@ -69,6 +85,11 @@ public class PlayerMaskHealth : MonoBehaviour
                 Maskp1.gameObject.SetActive(false);
                 Maskp2.gameObject.SetActive(false);
                 Maskp3.gameObject.SetActive(false);
+                VirusW.SetActive(true);
+                RestartCube.SetActive(true);
+                HishamD.SetActive(true);
+                DSource.PlayOneShot(DClip);
+
                 break;
 
         }
