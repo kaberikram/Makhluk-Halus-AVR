@@ -19,7 +19,7 @@ public class MaskPickup : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Ring") && (PlayerMaskHealth.Mask < 3))
+        if (other.gameObject.CompareTag("Ring") && (PlayerMaskHealth.Mask < 4))
         {
             //this.gameObject.SetActive(false);
             maskPick = PlayerMaskHealth.Mask += 1;
