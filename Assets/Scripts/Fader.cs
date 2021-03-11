@@ -6,6 +6,12 @@ using UnityEngine.UI;
 public class Fader : MonoBehaviour
 {
     public GameObject blackOutSquare;
+    void Start()
+    {
+
+        StartCoroutine(FadeBlackOutSquare(false));
+
+    }
 
     public void Update()
     {

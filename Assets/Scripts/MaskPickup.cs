@@ -8,6 +8,8 @@ public class MaskPickup : MonoBehaviour
 
     int maskPick;
     public GameObject DummyMask;
+    public AudioClip HealClip;
+    public AudioSource HealSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class MaskPickup : MonoBehaviour
         {
             //this.gameObject.SetActive(false);
             maskPick = PlayerMaskHealth.Mask += 1;
+            HealSource.PlayOneShot(HealClip);
             //GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.SetActive(false);
             DummyMask.gameObject.SetActive(true);

@@ -8,6 +8,14 @@ public class menuchange : MonoBehaviour
     {
       Invoke("Change", 2.0f);
     }
+    public void TutorialISo()
+    {
+        Invoke("Change3", 2.0f);
+    }
+    public void Game()
+    {
+        Invoke("Change2", 2.0f);
+    }
     public void Change()
     {
         SceneManager.LoadScene("Tutorial Test");
