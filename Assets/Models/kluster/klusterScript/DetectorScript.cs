@@ -4,22 +4,13 @@ using UnityEngine;
 
 public class DetectorScript : MonoBehaviour
 {
-    public GameObject warning;
     public AudioSource warningSound;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "vrPlayer")
+        if (other.gameObject.tag == "WarningTrigger")
         {
-            warning.SetActive(true);
-            StartCoroutine("WaitForSec");
             warningSound.Play();
         }
-    }
-
-    IEnumerator WaitForSec()
-    {
-        yield return new WaitForSeconds(1);
-        warning.SetActive(false);
     }
 }

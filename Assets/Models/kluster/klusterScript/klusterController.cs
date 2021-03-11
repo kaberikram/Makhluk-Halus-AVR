@@ -7,6 +7,8 @@ public class klusterController : MonoBehaviour
 {
     public float lookRadius = 10f;
     private Animator animator;
+    public GameObject warning;
+    
 
     Transform target;
     NavMeshAgent agent;
@@ -30,12 +32,15 @@ public class klusterController : MonoBehaviour
             agent.SetDestination(target.position);
             animator.SetBool("Aware", true);
             agent.isStopped = false;
+            warning.SetActive(true);
+            
 
         }
         else
         {
             animator.SetBool("Aware", false);
             agent.isStopped = true;
+            warning.SetActive(false);
         }
 
         if (agent.remainingDistance <= agent.stoppingDistance)
@@ -43,6 +48,7 @@ public class klusterController : MonoBehaviour
             animator.SetBool("Aware", false);
             agent.isStopped = true;
         }
+
     }
 
     private void OnDrawGizmosSelected()
@@ -50,4 +56,5 @@ public class klusterController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
+
 }
