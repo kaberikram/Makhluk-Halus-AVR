@@ -33,6 +33,7 @@ public class ButtonPress : MonoBehaviour
         if(buttonHit == true)
         {
             buttonHit = false;
+        
 
             button.transform.position = new Vector3(button.transform.position.x, button.transform.position.y - buttonDownDistance, button.transform.position.z);
 
@@ -46,7 +47,7 @@ public class ButtonPress : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("VRhands") && canHitAgain < Time.time)
+        if (other.CompareTag("ButtonHand") && canHitAgain < Time.time)
         {
             canHitAgain = Time.time + buttonHitAgainTime;
             buttonHit = true;

@@ -5,9 +5,17 @@ using UnityEngine;
 public class RotatorPlatformVR : MonoBehaviour
 {
     public static int Button;
+    private bool buttonHit = false;
     public float smooth = 1f;
     private Quaternion targetRotation;
     public GameObject Info1, Info2, Info3, Info4;
+    public AudioSource buttonSource;
+    public AudioClip buttonClip;
+    public AudioSource DropSource;
+    public AudioClip DropClip;
+
+    private float buttonHitAgainTime = 0.5f;
+    private float canHitAgain;
 
 
     void Start()
@@ -64,15 +72,23 @@ public class RotatorPlatformVR : MonoBehaviour
             targetRotation *= Quaternion.AngleAxis(90, Vector3.forward);
         }
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 10 * smooth * Time.deltaTime);
+        if(buttonHit == true)
+        {
+            buttonHit = false;
+            buttonSource.PlayOneShot(buttonClip);
+            DropSource.PlayOneShot(DropClip);
+            Button += 1;
+            targetRotation *= Quaternion.AngleAxis(90, Vector3.forward);
+        }
         
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("ButtonHand"))
+        if (other.CompareTag("ButtonHand") && canHitAgain < Time.time)
         {
-            Button += 1;
-            targetRotation *= Quaternion.AngleAxis(90, Vector3.forward);
+            canHitAgain = Time.time + buttonHitAgainTime;
+            buttonHit = true;
         }
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 10 * smooth * Time.deltaTime);
+        
     }
 }
