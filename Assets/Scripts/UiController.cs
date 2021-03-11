@@ -18,6 +18,13 @@ public class UiController : MonoBehaviour
 
 
         }
+        if (other.gameObject.CompareTag("VRhands"))
+        {
+
+            gotHurt();
+
+
+        }
     }
 
 
