@@ -562,6 +562,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Green: {fileID: 5001602200026306941}
   Red: {fileID: 4801921757564607006}
+  watchSource: {fileID: 0}
+  watchClip: {fileID: 0}
+  VhitSource: {fileID: 0}
+  VhitClip: {fileID: 0}
   Mask1: {fileID: 3109847167304202008}
   Mask2: {fileID: 3109847168503532651}
   Mask3: {fileID: 3109847167632658985}
