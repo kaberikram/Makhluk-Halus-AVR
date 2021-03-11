@@ -12,6 +12,12 @@ public class smallervirus : MonoBehaviour
             this.gameObject.SetActive(false);
 
         }
+        if (other.gameObject.CompareTag("ButtonHand"))
+        {
+
+            this.gameObject.SetActive(false);
+
+        }
         if (other.gameObject.CompareTag("Sanitizer"))
         {
             

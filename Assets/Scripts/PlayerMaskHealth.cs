@@ -7,6 +7,10 @@ public class PlayerMaskHealth : MonoBehaviour
     public static int Mask;
     public GameObject Green;
     public GameObject Red;
+    public AudioSource watchSource;
+    public AudioClip watchClip;
+    public AudioSource VhitSource;
+    public AudioClip VhitClip;
     public GameObject Mask1, Mask2, Mask3, Maskp1, Maskp2, Maskp3;
 
 
@@ -77,6 +81,7 @@ public class PlayerMaskHealth : MonoBehaviour
         if (other.gameObject.CompareTag("Virus"))
         {
             Mask -= 1;
+            VhitSource.PlayOneShot(VhitClip);
             Red.gameObject.SetActive(false);
             Green.gameObject.SetActive(true);
             Debug.Log("Mask lose 1");
@@ -85,9 +90,13 @@ public class PlayerMaskHealth : MonoBehaviour
         {
             Red.gameObject.SetActive(true);
             Green.gameObject.SetActive(false);
+            watchSource.PlayOneShot(watchClip);
+           
         }
         if (other.gameObject.CompareTag("VirusSmall"))
         {
+           
+            VhitSource.PlayOneShot(VhitClip);
             Mask -= 1;
             Debug.Log("Mask lose 1");
         }
