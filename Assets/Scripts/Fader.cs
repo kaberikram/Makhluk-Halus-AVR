@@ -30,6 +30,28 @@ public class Fader : MonoBehaviour
         StartCoroutine(FadeBlackOutSquare());
     }
 
+    public void putih()
+    {
+        StartCoroutine(FadeBlackOutSquare(false));
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("vrPlayer"))
+        {
+            StartCoroutine(FadeBlackOutSquare());
+
+        }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("vrPlayer"))
+        {
+            StartCoroutine(FadeBlackOutSquare(false));
+
+        }
+
+    }
     public IEnumerator FadeBlackOutSquare(bool fadeToblack = true, int fadeSpeed = 2)
     {
         Color objectColor = blackOutSquare.GetComponent<Image>().color;

@@ -64,21 +64,21 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EmissionMultiplier: 1.01
+    - _EmissionMultiplier: 1.94
     - _GlitchDensity: 43.03
     - _GlitchEffectPeriod: -1.25
     - _GlitchEffectStrength: 1
     - _GlitchPeriod: 376.2
-    - _GlitchStrength: 0.1
+    - _GlitchStrength: 0
     - _GlitchX: -0.14
     - _GlitchY: 40.53
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _HoloCrowdness: 2
-    - _HoloDistance: 0.111
+    - _HoloDistance: 0.75
     - _HoloGap: 0.23
-    - _HoloValue: 2.7
+    - _HoloValue: 0.1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -90,12 +90,12 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.9516007, g: 0.9622642, b: 0.30411178, a: 1}
+    - _Color: {r: 0.36078432, g: 1, b: 0.9416926, a: 0.87058824}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GlitchDirection: {r: 0, g: 1, b: 0, a: 0}
     - _GlitchValue: {r: 0, g: 0, b: 0, a: 0}
-    - _HoloColor: {r: 0.02352941, g: 0.4928979, b: 1, a: 0.105882354}
+    - _HoloColor: {r: 0, g: 0.94509804, b: 0.9843137, a: 0.5372549}
     - _HoloDir: {r: 0, g: 1, b: 0, a: 1}
-    - _HoloDirection: {r: 1, g: 5, b: 0, a: 0}
+    - _HoloDirection: {r: 0, g: 1, b: 0, a: 0}
     - _RimColor: {r: 0.5477066, g: 0, b: 1, a: 1}
   m_BuildTextureStacks: []

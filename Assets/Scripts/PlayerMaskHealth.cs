@@ -8,16 +8,23 @@ public class PlayerMaskHealth : MonoBehaviour
     public GameObject Green;
     public GameObject Red;
     public GameObject VirusW;
-    public GameObject HishamD;
-    public GameObject RestartCube;
+    public GameObject HishamBody;
+    public GameObject LoseP;
+
+    
     public AudioSource watchSource;
     public AudioClip watchClip;
+    //public AudioSource warningSource;
+    //public AudioClip warningClip;
     public AudioSource DSource;
     public AudioClip DClip;
     public AudioSource VhitSource;
     public AudioClip VhitClip;
     public GameObject Mask1, Mask2, Mask3, Maskp1, Maskp2, Maskp3;
-
+    /*private bool KlusterHit = false;
+    private float KlusterHitAgainTime = 4f;
+    private float canHitAgain;*/
+    public Fader otherscript;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +33,8 @@ public class PlayerMaskHealth : MonoBehaviour
         Green.gameObject.SetActive(true);
         Red.gameObject.SetActive(false);
         VirusW.SetActive(false);
-        RestartCube.SetActive(false);
-        HishamD.SetActive(false);
+        
+      
 
         Mask = 4;
         Mask1.gameObject.SetActive(true);
@@ -51,6 +58,8 @@ public class PlayerMaskHealth : MonoBehaviour
                 Maskp1.gameObject.SetActive(true);
                 Maskp2.gameObject.SetActive(true);
                 Maskp3.gameObject.SetActive(true);
+               
+
                 break;
             case 3:
                 Mask1.gameObject.SetActive(true);
@@ -86,16 +95,28 @@ public class PlayerMaskHealth : MonoBehaviour
                 Maskp2.gameObject.SetActive(false);
                 Maskp3.gameObject.SetActive(false);
                 VirusW.SetActive(true);
-                RestartCube.SetActive(true);
-                HishamD.SetActive(true);
+                otherscript.GetComponent<Fader>().hitam();
+                Invoke("Kalah", 1.0f);
+
                 DSource.PlayOneShot(DClip);
 
                 break;
 
         }
+
+        /*if (KlusterHit == true)
+        {
+            KlusterHit = false;
+            warningSource.PlayOneShot(warningClip);
+
+        }*/
     }
 
-
+    void Kalah()
+    {
+        HishamBody.transform.position = LoseP.transform.position;
+        otherscript.GetComponent<Fader>().putih();
+    }
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
@@ -121,7 +142,12 @@ public class PlayerMaskHealth : MonoBehaviour
             Mask -= 1;
             Debug.Log("Mask lose 1");
         }
+        /*if (other.gameObject.CompareTag("WarningTrigger") && canHitAgain < Time.time)
+        {
+            canHitAgain = Time.time + KlusterHitAgainTime;
+            KlusterHit = true;
 
+        }*/
 
 
     }

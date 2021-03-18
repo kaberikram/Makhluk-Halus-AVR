@@ -15,7 +15,7 @@ public class VirusSpawner : MonoBehaviour
 
     //private float nextfireTime = 0;
 
-    public int maxAmmo = 5;
+    public static int maxAmmo = 5;
     public static int currentAmmo = -1;
     bool isCooldown = false;
 

@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class menuchange : MonoBehaviour
 {
+    int virusHit;
 
     public void Tutorial()
     {
@@ -24,6 +25,8 @@ public class menuchange : MonoBehaviour
     public void Change2()
     {
         SceneManager.LoadScene("LEVEL_01");
+        PlayerMaskHealth.Mask = 4;
+        virusHit = VirusSpawner.currentAmmo = 5;
     }
 
     public void Change3()
@@ -31,6 +34,12 @@ public class menuchange : MonoBehaviour
         SceneManager.LoadScene("tutorialiso");
     }
 
-
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Change2();
+        }
+    }
 
 }

@@ -8,7 +8,12 @@ public class klusterController : MonoBehaviour
     public float lookRadius = 10f;
     private Animator animator;
     public GameObject warning;
-    
+    public AudioSource warningSource;
+    public AudioClip warningClip;
+    private bool KlusterHit = false;
+    private float KlusterHitAgainTime = 5f;
+    private float canHitAgain;
+
 
     Transform target;
     NavMeshAgent agent;
@@ -33,7 +38,7 @@ public class klusterController : MonoBehaviour
             animator.SetBool("Aware", true);
             agent.isStopped = false;
             warning.SetActive(true);
-            
+            kluast();
 
         }
         else
@@ -48,9 +53,24 @@ public class klusterController : MonoBehaviour
             animator.SetBool("Aware", false);
             agent.isStopped = true;
         }
+       
+        if (KlusterHit == true)
+        {
+            KlusterHit = false;
+            warningSource.PlayOneShot(warningClip);
 
+        }
     }
+    
+    void kluast()
+    {
+        if (canHitAgain < Time.time)
+        {
+            canHitAgain = Time.time + KlusterHitAgainTime;
+            KlusterHit = true;
 
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
